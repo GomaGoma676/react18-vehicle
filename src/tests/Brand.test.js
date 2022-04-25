@@ -109,8 +109,8 @@ describe("Brand Component Test Cases", () => {
     );
     expect(screen.queryByText("Audi")).toBeNull();
     const inputValue = screen.getByPlaceholderText("new brand name");
-    userEvent.type(inputValue, "Audi");
-    userEvent.click(screen.getByTestId("btn-post"));
+    await userEvent.type(inputValue, "Audi");
+    await userEvent.click(screen.getByTestId("btn-post"));
     expect(await screen.findByText("Audi")).toBeInTheDocument();
   });
   it("5 :Should delete segement(id 1) and also from list", async () => {
@@ -123,7 +123,7 @@ describe("Brand Component Test Cases", () => {
     expect(screen.queryByText("Tesla")).toBeNull();
     expect(await screen.findByText("Toyota")).toBeInTheDocument();
     expect(screen.getByTestId("list-2").textContent).toBe("Tesla");
-    userEvent.click(screen.getByTestId("delete-brand-1"));
+    await userEvent.click(screen.getByTestId("delete-brand-1"));
     expect(await screen.findByText("Deleted in brand!")).toBeInTheDocument();
     expect(screen.queryByText("Toyota")).toBeNull();
   });
@@ -137,7 +137,7 @@ describe("Brand Component Test Cases", () => {
     expect(screen.queryByText("Tesla")).toBeNull();
     expect(await screen.findByText("Toyota")).toBeInTheDocument();
     expect(screen.getByTestId("list-2").textContent).toBe("Tesla");
-    userEvent.click(screen.getByTestId("delete-brand-2"));
+    await userEvent.click(screen.getByTestId("delete-brand-2"));
     expect(await screen.findByText("Deleted in brand!")).toBeInTheDocument();
     expect(screen.queryByText("Tesla")).toBeNull();
   });
@@ -151,10 +151,10 @@ describe("Brand Component Test Cases", () => {
     expect(screen.queryByText("Tesla")).toBeNull();
     expect(await screen.findByText("Toyota")).toBeInTheDocument();
     expect(screen.getByTestId("list-2").textContent).toBe("Tesla");
-    userEvent.click(screen.getByTestId("edit-brand-1"));
+    await userEvent.click(screen.getByTestId("edit-brand-1"));
     const inputValue = screen.getByPlaceholderText("new brand name");
-    userEvent.type(inputValue, "new Toyota");
-    userEvent.click(screen.getByTestId("btn-post"));
+    await userEvent.type(inputValue, "new Toyota");
+    await userEvent.click(screen.getByTestId("btn-post"));
     expect(await screen.findByText("Updated in brand!")).toBeInTheDocument();
     expect(screen.getByTestId("list-1").textContent).toBe("new Toyota");
   });
@@ -168,10 +168,10 @@ describe("Brand Component Test Cases", () => {
     expect(screen.queryByText("Tesla")).toBeNull();
     expect(await screen.findByText("Toyota")).toBeInTheDocument();
     expect(screen.getByTestId("list-2").textContent).toBe("Tesla");
-    userEvent.click(screen.getByTestId("edit-brand-2"));
+    await userEvent.click(screen.getByTestId("edit-brand-2"));
     const inputValue = screen.getByPlaceholderText("new brand name");
-    userEvent.type(inputValue, "new Teslta");
-    userEvent.click(screen.getByTestId("btn-post"));
+    await userEvent.type(inputValue, "new Teslta");
+    await userEvent.click(screen.getByTestId("btn-post"));
     expect(await screen.findByText("Updated in brand!")).toBeInTheDocument();
     expect(screen.getByTestId("list-2").textContent).toBe("new Tesla");
   });
