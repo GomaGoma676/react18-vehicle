@@ -1,0 +1,8 @@
+.brand__status {
+  display: none;
+}
+.brand__item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}

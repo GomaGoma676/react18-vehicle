@@ -1,0 +1,8 @@
+.segment__status {
+  display: none;
+}
+.segment__item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}

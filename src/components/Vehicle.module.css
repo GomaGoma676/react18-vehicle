@@ -1,0 +1,11 @@
+.vehicle__status {
+  display: none;
+}
+.vehicle__item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+.vehicle__input {
+  margin: 10px;
+}
